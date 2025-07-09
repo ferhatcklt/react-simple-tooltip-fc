@@ -1,0 +1,44 @@
+{
+  "name": "react-simple-tooltip-fc",
+  "version": "0.1.1",
+  "description": "A simple, lightweight, and accessible tooltip component for React.",
+  "main": "dist/Tooltip.js",
+  "module": "dist/Tooltip.mjs",
+  "types": "dist/Tooltip.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "parcel example/index.html",
+    "build": "tsup src/Tooltip.jsx --format cjs,esm --external react,react-dom"
+  },
+  "keywords": [
+    "react",
+    "tooltip",
+    "component",
+    "accessible",
+    "a11y"
+  ],
+  "author": "Ferhat",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ferhatcklt/react-simple-tooltip-fc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ferhatcklt/react-simple-tooltip-fc/issues"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "parcel": "^2.12.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  }
+}

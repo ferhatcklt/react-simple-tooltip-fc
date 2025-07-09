@@ -1,0 +1,87 @@
+.tooltip-wrapper {
+  position: relative; /* Bu hala gerekli olabilir */
+  display: inline-block;
+}
+
+.tooltip-container {
+  /* Temel Görünüm */
+  background-color: #333;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  
+  /* Portal için mutlak pozisyonlama */
+  position: fixed; /* Sayfa scroll'undan etkilenmemesi için fixed kullanıyoruz */
+  z-index: 1070;
+  
+  /* Animasyon */
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  
+  /* Başlangıçta görünmez ve etkileşimsiz */
+  pointer-events: none;
+  
+  /* Pozisyonlama CSS Değişkenleri ile yapılacak */
+  top: var(--wrapper-top);
+  left: var(--wrapper-left);
+  width: max-content; /* İçeriğe göre genişle */
+}
+
+.tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px;
+  /* Varsayılan rengi JS'den gelen renkle eşleşecek */
+  border-top-color: #333; 
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+}
+
+
+/* --- POZİSYONLAMA MANTIĞI (DATA ATTRIBUTE İLE) --- */
+
+/* Konum: TOP */
+.tooltip-container[data-position="top"] {
+  transform: translate(calc(var(--wrapper-width) / 2 - 50%), calc(-100% - 10px));
+}
+.tooltip-container[data-position="top"] .tooltip-arrow {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-1px) rotate(180deg);
+}
+
+/* Konum: BOTTOM */
+.tooltip-container[data-position="bottom"] {
+  transform: translate(calc(var(--wrapper-width) / 2 - 50%), var(--wrapper-height));
+  margin-top: 10px;
+}
+.tooltip-container[data-position="bottom"] .tooltip-arrow {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Konum: LEFT */
+.tooltip-container[data-position="left"] {
+  transform: translate(calc(-100% - 10px), calc(var(--wrapper-height) / 2 - 50%));
+}
+.tooltip-container[data-position="left"] .tooltip-arrow {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+}
+
+/* Konum: RIGHT */
+.tooltip-container[data-position="right"] {
+  transform: translate(var(--wrapper-width), calc(var(--wrapper-height) / 2 - 50%));
+  margin-left: 10px;
+}
+.tooltip-container[data-position="right"] .tooltip-arrow {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+}
