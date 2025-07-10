@@ -1,6 +1,6 @@
 {
   "name": "react-simple-tooltip-fc",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A simple, lightweight, and accessible tooltip component for React.",
   "main": "dist/Tooltip.js",
   "module": "dist/Tooltip.mjs",
